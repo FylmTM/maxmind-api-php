@@ -52,7 +52,10 @@ class MinFraudRequestTest extends \PHPUnit_Framework_TestCase
 
     public function testRequestDataSetWithRequiredData()
     {
-        $this->assertEquals($this->requiredData, $this->request->getRequestData());
+        $expectedData                   = $this->requiredData;
+        $expectedData['requested_type'] = 'standard';
+
+        $this->assertEquals($expectedData, $this->request->getRequestData());
     }
 
     public function testSetShippingAddressEmpty()
@@ -60,19 +63,21 @@ class MinFraudRequestTest extends \PHPUnit_Framework_TestCase
         $this->request->setShippingAddress(array());
 
         $this->assertEquals(array(
-            'i'           => '127.0.0.1',
-            'city'        => 'City',
-            'region'      => 'Region',
-            'postal'      => '1111',
-            'country'     => 'NA',
-            'license_key' => '11',
-            'shipAddr'    => '',
-            'shipCity'    => '',
-            'shipRegion'  => '',
-            'shipPostal'  => '',
-            'shipCountry' => '',
+            'i'              => '127.0.0.1',
+            'city'           => 'City',
+            'region'         => 'Region',
+            'postal'         => '1111',
+            'country'        => 'NA',
+            'license_key'    => '11',
+            'requested_type' => 'standard',
+            'shipAddr'       => '',
+            'shipCity'       => '',
+            'shipRegion'     => '',
+            'shipPostal'     => '',
+            'shipCountry'    => '',
         ), $this->request->getRequestData());
     }
+
     public function testSetShippingAddress()
     {
         $this->request->setShippingAddress(array(
@@ -84,17 +89,18 @@ class MinFraudRequestTest extends \PHPUnit_Framework_TestCase
         ));
 
         $this->assertEquals(array(
-            'i'           => '127.0.0.1',
-            'city'        => 'City',
-            'region'      => 'Region',
-            'postal'      => '1111',
-            'country'     => 'NA',
-            'license_key' => '11',
-            'shipAddr'    => '1',
-            'shipCity'    => '2',
-            'shipRegion'  => '3',
-            'shipPostal'  => '4',
-            'shipCountry' => '5',
+            'i'              => '127.0.0.1',
+            'city'           => 'City',
+            'region'         => 'Region',
+            'postal'         => '1111',
+            'country'        => 'NA',
+            'license_key'    => '11',
+            'requested_type' => 'standard',
+            'shipAddr'       => '1',
+            'shipCity'       => '2',
+            'shipRegion'     => '3',
+            'shipPostal'     => '4',
+            'shipCountry'    => '5',
         ), $this->request->getRequestData());
     }
 }
