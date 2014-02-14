@@ -2,6 +2,10 @@ Maxmind API
 ===============
 [![Build Status](https://travis-ci.org/FylmTM/maxmind-api-php.png?branch=master)](https://travis-ci.org/FylmTM/maxmind-api-php)
 [![Coverage Status](https://coveralls.io/repos/FylmTM/maxmind-api-php/badge.png?branch=master)](https://coveralls.io/r/FylmTM/maxmind-api-php?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/fylmtm/maxmind-api/v/stable.png)](https://packagist.org/packages/fylmtm/maxmind-api)
+[![Total Downloads](https://poser.pugx.org/fylmtm/maxmind-api/downloads.png)](https://packagist.org/packages/fylmtm/maxmind-api)
+[![Latest Unstable Version](https://poser.pugx.org/fylmtm/maxmind-api/v/unstable.png)](https://packagist.org/packages/fylmtm/maxmind-api)
+[![License](https://poser.pugx.org/fylmtm/maxmind-api/license.png)](https://packagist.org/packages/fylmtm/maxmind-api)
 
 # About
 **Author**: Dmitry Vrublevskis
