@@ -53,6 +53,9 @@ class MinFraudRequest
         $this->setRequestDataField('shipCountry', $data);
     }
 
+    /**
+     * @param array $data
+     */
     public function setUserData(array $data)
     {
         $this->setRequestDataField('domain', $data);
@@ -60,6 +63,26 @@ class MinFraudRequest
         $this->setRequestDataField('emailMD5', $data);
         $this->setRequestDataField('usernameMD5', $data);
         $this->setRequestDataField('passwordMD5', $data);
+    }
+
+    /**
+     * @param array $data
+     */
+    public function setBinRelated(array $data)
+    {
+        $this->setRequestDataField('bin', $data);
+        $this->setRequestDataField('binName', $data);
+        $this->setRequestDataField('binPhone', $data);
+    }
+
+    /**
+     * @param array $data
+     */
+    public function setTransactionLinking(array $data)
+    {
+        $this->setRequestDataField('sessionID', $data);
+        $this->setRequestDataField('user_agent', $data);
+        $this->setRequestDataField('accept_language', $data);
     }
 
     /**
