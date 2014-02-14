@@ -12,11 +12,8 @@ Maxmind API
 Recommended way of installation is through [composer](http://getcomposer.org/).
 Add to your composer.json:
 ```javascript
-"repositories": [
-    { "type": "git", "url": "https://github.com/FylmTM/maxmind-api-php.git" }
-],
 "require": {
-    "fylmtm/maxmind-api": "master",
+    "fylmtm/maxmind-api": "dev-master"
 }
 ```
 And then install with:
