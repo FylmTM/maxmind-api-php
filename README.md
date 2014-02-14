@@ -8,8 +8,9 @@ Maxmind API
 [![License](https://poser.pugx.org/fylmtm/maxmind-api/license.png)](https://packagist.org/packages/fylmtm/maxmind-api)
 
 # About
-**Author**: Dmitry Vrublevskis
-**Contact**: d.vrublevskis@gmail.com
+| ------------- | -------------           |
+| **Author**:   | Dmitry Vrublevskis      |
+| **Contact**:  | d.vrublevskis@gmail.com |
 
 # Installation
 ### Composer
@@ -17,7 +18,7 @@ Recommended way of installation is through [composer](http://getcomposer.org/).
 Add to your composer.json:
 ```javascript
 "require": {
-    "fylmtm/maxmind-api": "dev-master"
+    "fylmtm/maxmind-api": "0.1.*@dev"
 }
 ```
 And then install with:
