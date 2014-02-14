@@ -1,5 +1,7 @@
 Maxmind API
 ===============
+[![Build Status](https://travis-ci.org/FylmTM/maxmind-api-php.png?branch=master)](https://travis-ci.org/FylmTM/maxmind-api-php)
+[![Coverage Status](https://coveralls.io/repos/FylmTM/maxmind-api-php/badge.png?branch=master)](https://coveralls.io/r/FylmTM/maxmind-api-php?branch=master)
 
 # About
 **Author**: Dmitry Vrublevskis
