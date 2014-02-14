@@ -31,6 +31,8 @@ class MinFraudRequest
         $this->requestData['postal']      = $requiredData['postal'];
         $this->requestData['country']     = $requiredData['country'];
         $this->requestData['license_key'] = $requiredData['license_key'];
+
+        $this->setRequestType('standard');
     }
 
     /**
@@ -83,6 +85,43 @@ class MinFraudRequest
         $this->setRequestDataField('sessionID', $data);
         $this->setRequestDataField('user_agent', $data);
         $this->setRequestDataField('accept_language', $data);
+    }
+
+    /**
+     * @param array $data
+     */
+    public function setTransactionInformation(array $data)
+    {
+        $this->setRequestDataField('txnID', $data);
+        $this->setRequestDataField('order_amount', $data);
+        $this->setRequestDataField('order_currency', $data);
+        $this->setRequestDataField('shopID', $data);
+        $this->setRequestDataField('txn_type', $data);
+    }
+
+    /**
+     * @param array $data
+     */
+    public function setCreditCardCheck(array $data)
+    {
+        $this->setRequestDataField('avs_result', $data);
+        $this->setRequestDataField('cvv_result', $data);
+    }
+
+    /**
+     * @param array $data
+     */
+    public function setMisc(array $data)
+    {
+        $this->setRequestDataField('forwardedIP', $data);
+    }
+
+    /**
+     * @param string $requestType
+     */
+    public function setRequestType($requestType = 'standard')
+    {
+        $this->requestData['requested_type'] = $requestType;
     }
 
     /**
