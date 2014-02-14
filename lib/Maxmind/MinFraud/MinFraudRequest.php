@@ -53,6 +53,15 @@ class MinFraudRequest
         $this->setRequestDataField('shipCountry', $data);
     }
 
+    public function setUserData(array $data)
+    {
+        $this->setRequestDataField('domain', $data);
+        $this->setRequestDataField('custPhone', $data);
+        $this->setRequestDataField('emailMD5', $data);
+        $this->setRequestDataField('usernameMD5', $data);
+        $this->setRequestDataField('passwordMD5', $data);
+    }
+
     /**
      * @param $field
      * @param array $data
