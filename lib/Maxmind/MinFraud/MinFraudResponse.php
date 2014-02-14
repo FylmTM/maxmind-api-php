@@ -32,4 +32,21 @@ class MinFraudResponse
     {
         return $this->rawResult;
     }
+
+    /**
+     * @return array
+     */
+    public function getResult()
+    {
+        $result = array();
+        if ($this->getIsCurlSuccessful()) {
+            $keyValuePairs = explode(";", $this->getRawResult());
+            foreach ($keyValuePairs as $keyValuePair) {
+                $keyValue             = explode("=", $keyValuePair);
+                $result[$keyValue[0]] = isset($keyValue[1]) ? $keyValue[1] : '';
+            }
+        }
+
+        return $result;
+    }
 } 

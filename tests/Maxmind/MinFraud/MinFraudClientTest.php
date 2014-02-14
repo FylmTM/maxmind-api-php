@@ -63,6 +63,31 @@ class MinFraudClientTest extends \PHPUnit_Framework_TestCase
             'distance=;countryMatch=;countryCode=;freeMail=;anonymousProxy=;score=;binMatch=;binCountry=;err=INVALID_LICENSE_KEY;proxyScore=;spamScore=;binName=;ip_isp=;ip_org=;binNameMatch=;binPhoneMatch=;binPhone=;custPhoneInBillingLoc=;highRiskCountry=;queriesRemaining=;cityPostalMatch=;shipCityPostalMatch=;maxmindID=',
             $response->getRawResult()
         );
+        $this->assertEquals(array(
+            'distance'              => '',
+            'countryMatch'          => '',
+            'countryCode'           => '',
+            'freeMail'              => '',
+            'anonymousProxy'        => '',
+            'score'                 => '',
+            'binMatch'              => '',
+            'binCountry'            => '',
+            'err'                   => 'INVALID_LICENSE_KEY',
+            'proxyScore'            => '',
+            'spamScore'             => '',
+            'binName'               => '',
+            'ip_isp'                => '',
+            'ip_org'                => '',
+            'binNameMatch'          => '',
+            'binPhoneMatch'         => '',
+            'binPhone'              => '',
+            'custPhoneInBillingLoc' => '',
+            'highRiskCountry'       => '',
+            'queriesRemaining'      => '',
+            'cityPostalMatch'       => '',
+            'shipCityPostalMatch'   => '',
+            'maxmindID'             => ''
+        ), $response->getResult());
     }
 }
  
