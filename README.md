@@ -8,9 +8,9 @@ Maxmind API
 [![License](https://poser.pugx.org/fylmtm/maxmind-api/license.png)](https://packagist.org/packages/fylmtm/maxmind-api)
 
 # About
-| ------------- | -------------           |
-| **Author**:   | Dmitry Vrublevskis      |
-| **Contact**:  | d.vrublevskis@gmail.com |
+**Author**: Dmitry Vrublevskis
+
+**Email**: d.vrublevskis@gmail.com
 
 # Installation
 ### Composer
