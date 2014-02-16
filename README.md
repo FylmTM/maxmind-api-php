@@ -47,6 +47,11 @@ $fraudClient->setServer(\Maxmind\MinFraud\MinFraudServers::US_EAST);
 $fraudClient->setServer(\Maxmind\MinFraud\MinFraudServers::US_WEST);
 ```
 
+HTTPS used by default. You can turn on/off https usage:
+```php
+$fraudClient->enableHttps(false);
+```
+
 ## MinFraud request
 [minFraud API reference](http://dev.maxmind.com/minfraud/)
 
