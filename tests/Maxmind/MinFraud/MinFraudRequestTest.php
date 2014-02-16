@@ -58,6 +58,21 @@ class MinFraudRequestTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedData, $this->request->getRequestData());
     }
 
+    public function testPremitRequestTypeSet()
+    {
+        $this->request->setRequestType('premium');
+
+        $this->assertEquals(array(
+            'i'              => '127.0.0.1',
+            'city'           => 'City',
+            'region'         => 'Region',
+            'postal'         => '1111',
+            'country'        => 'NA',
+            'license_key'    => '11',
+            'requested_type' => 'premium'
+        ), $this->request->getRequestData());
+    }
+
     public function testSetShippingAddressEmpty()
     {
         $this->request->setShippingAddress(array());
@@ -103,5 +118,120 @@ class MinFraudRequestTest extends \PHPUnit_Framework_TestCase
             'shipCountry'    => '5',
         ), $this->request->getRequestData());
     }
+
+    public function testSetUserData()
+    {
+        $this->request->setUserData(array(
+            'domain'      => '1',
+            'custPhone'   => '2',
+            'emailMD5'    => '3',
+            'usernameMD5' => '4',
+            'passwordMD5' => '5'
+        ));
+
+        $this->assertEquals(array(
+            'i'              => '127.0.0.1',
+            'city'           => 'City',
+            'region'         => 'Region',
+            'postal'         => '1111',
+            'country'        => 'NA',
+            'license_key'    => '11',
+            'requested_type' => 'standard',
+            'domain'         => '1',
+            'custPhone'      => '2',
+            'emailMD5'       => '3',
+            'usernameMD5'    => '4',
+            'passwordMD5'    => '5'
+        ), $this->request->getRequestData());
+    }
+
+    public function testSetBinRelated()
+    {
+        $this->request->setBinRelated(array(
+            'bin'      => '1',
+            'binName'  => '2',
+            'binPhone' => '3'
+        ));
+
+        $this->assertEquals(array(
+            'i'              => '127.0.0.1',
+            'city'           => 'City',
+            'region'         => 'Region',
+            'postal'         => '1111',
+            'country'        => 'NA',
+            'license_key'    => '11',
+            'requested_type' => 'standard',
+            'bin'            => '1',
+            'binName'        => '2',
+            'binPhone'       => '3'
+        ), $this->request->getRequestData());
+    }
+
+    public function testSetTransactionLinking()
+    {
+        $this->request->setTransactionLinking(array(
+            'sessionID'       => '1',
+            'user_agent'      => '2',
+            'accept_language' => '3'
+        ));
+
+        $this->assertEquals(array(
+            'i'               => '127.0.0.1',
+            'city'            => 'City',
+            'region'          => 'Region',
+            'postal'          => '1111',
+            'country'         => 'NA',
+            'license_key'     => '11',
+            'requested_type'  => 'standard',
+            'sessionID'       => '1',
+            'user_agent'      => '2',
+            'accept_language' => '3'
+        ), $this->request->getRequestData());
+    }
+
+    public function testSetTransactionInformation()
+    {
+        $this->request->setTransactionInformation(array(
+            'txnID'          => '1',
+            'order_amount'   => '2',
+            'order_currency' => '3',
+            'shopID'         => '4',
+            'txn_type'       => '5'
+        ));
+
+        $this->assertEquals(array(
+            'i'              => '127.0.0.1',
+            'city'           => 'City',
+            'region'         => 'Region',
+            'postal'         => '1111',
+            'country'        => 'NA',
+            'license_key'    => '11',
+            'requested_type' => 'standard',
+            'txnID'          => '1',
+            'order_amount'   => '2',
+            'order_currency' => '3',
+            'shopID'         => '4',
+            'txn_type'       => '5'
+        ), $this->request->getRequestData());
+    }
+
+    public function testSetMisc()
+    {
+        $this->request->setMisc(array(
+            'forwardedIP' => '1'
+        ));
+
+        $this->assertEquals(array(
+            'i'              => '127.0.0.1',
+            'city'           => 'City',
+            'region'         => 'Region',
+            'postal'         => '1111',
+            'country'        => 'NA',
+            'license_key'    => '11',
+            'requested_type' => 'standard',
+            'forwardedIP'    => '1'
+        ), $this->request->getRequestData());
+    }
+
 }
  
