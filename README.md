@@ -33,7 +33,83 @@ require_once 'lib/autoloader.php'
 ```
 
 # Usage
-**TODO**
+
+## MinFraud client
+Create client:
+```php
+$fraudClient = new Maxmind\MinFraud\MinFraudClient();
+```
+
+By default main server used. You can choose whatever you want:
+```php
+$fraudClient->setServer(\Maxmind\MinFraud\MinFraudServers::MAIN);
+$fraudClient->setServer(\Maxmind\MinFraud\MinFraudServers::US_EAST);
+$fraudClient->setServer(\Maxmind\MinFraud\MinFraudServers::US_WEST);
+```
+
+## MinFraud request
+[minFraud API reference](http://dev.maxmind.com/minfraud/)
+
+You need to create request, which you pass to fraudClient later. Required request fields must be passed on client creation. By default `standard` request type used.
+```php
+// Exception may be thrown, if any of required fields will not be passed.
+$request = new Maxmind\MinFraud\MinFraudRequest([
+    'license_key' => '1111111',
+    'i'           => '257.257.257.257',
+    'city'        => 'BigApple',
+    'region'      => 'NA',
+    'postal'      => '1111',
+    'country'     => 'NA',
+]);
+$request->setRequestType('standard'); // 'standard' or 'premium' request type can be used.
+```
+
+Other fields (see API reference for more info) can be passed separately.
+```php
+$request->setShippingAddress([
+    'shipAddr' => '',
+    'shipCity' => '',
+    'shipRegion' => '',
+    'shipPostal' => '',
+    'shipCountry' => ''
+]);
+$request->setUserData([
+    'domain' => '',
+    'custPhone' => '',
+    'emailMD5' => '',
+    'usernameMD5' => '',
+    'passwordMD5' => ''
+]);
+$request->setBinRelated([
+    'bin' => '',
+    'binName' => '',
+    'binPhone' => ''
+]);
+$request->setTransactionLinking([
+    'sessionID' => '',
+    'user_agent' => '',
+    'accept_language' => ''
+]);
+$request->setTransactionInformation([
+    'txnID' => '',
+    'order_amount' => '',
+    'order_currency' => '',
+    'shopID' => '',
+    'txn_type' => ''
+]);
+$request->setMisc([
+    'forwardedIP' => ''
+]);
+```
+
+## MinFraud response
+Request can be executed via client.
+```php
+$response = $fraudClient->executeRequest($request);
+$response->getIsCurlSuccessful(); // true|false - indicates if curl was successfull
+$response->getRawResult(); // string - raw curl response, contains error if curl was unsuccessful
+$response->getResult(); // parsed minFraud response
+```
 
 # Tests
 If you wish to run tests, you need to install development dependencies:
