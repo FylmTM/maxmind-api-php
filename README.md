@@ -102,6 +102,10 @@ $request->setTransactionInformation([
     'shopID' => '',
     'txn_type' => ''
 ]);
+$request->setCreditCardCheck([
+    'avs_result' => '',
+    'cvv_result' => ''
+]);
 $request->setMisc([
     'forwardedIP' => ''
 ]);

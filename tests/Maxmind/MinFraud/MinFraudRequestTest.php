@@ -215,6 +215,26 @@ class MinFraudRequestTest extends \PHPUnit_Framework_TestCase
         ), $this->request->getRequestData());
     }
 
+    public function testSetCreditCardCheck()
+    {
+        $this->request->setCreditCardCheck(array(
+            'avs_result' => '1',
+            'cvv_result' => '2'
+        ));
+
+        $this->assertEquals(array(
+            'i'              => '127.0.0.1',
+            'city'           => 'City',
+            'region'         => 'Region',
+            'postal'         => '1111',
+            'country'        => 'NA',
+            'license_key'    => '11',
+            'requested_type' => 'standard',
+            'avs_result'     => '1',
+            'cvv_result'     => '2'
+        ), $this->request->getRequestData());
+    }
+
     public function testSetMisc()
     {
         $this->request->setMisc(array(
