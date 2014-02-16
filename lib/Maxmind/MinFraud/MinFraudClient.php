@@ -69,6 +69,7 @@ class MinFraudClient
         $requestData = $request->getRequestData();
 
         $ch = curl_init();
+        curl_setopt($ch, CURLOPT_USERAGENT, 'MaxMind PHP API (fylmtm/maxmind-api)');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
@@ -87,4 +88,4 @@ class MinFraudClient
 
         return new MinFraudResponse($isCurlSuccessful, $curlResult);
     }
-} 
+}
