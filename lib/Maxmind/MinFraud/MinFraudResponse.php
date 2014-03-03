@@ -14,7 +14,7 @@ class MinFraudResponse
     public function __construct($isCurlSuccessful, $result)
     {
         $this->isCurlSuccessful = $isCurlSuccessful;
-        $this->rawResult        = $result;
+        $this->rawResult        = mb_convert_encoding($result, 'UTF-8', 'UTF-8');
     }
 
     /**
