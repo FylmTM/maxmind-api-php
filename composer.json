@@ -12,8 +12,7 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-0": {
-            "Maxmind\\": "lib",
-            "tests\\Maxmind\\": ""
+            "Maxmind\\": "lib"
         }
     },
     "require": {
